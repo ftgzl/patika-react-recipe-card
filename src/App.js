@@ -1,22 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Card from "./components/Card/Card";
+import food from "./assets/food.jpg"; // Tell webpack this JS file uses this image
 
 function App() {
+  const recipeAuthor = "Kodluyoruz";
+  const recipeItem = {
+    title: "Avokado Ezmeli Taco",
+    date: "12 Ocak 2021, Salı",
+    image: food,
+    description:
+      "Bu kremsi ve baharatlı avokado sosu, günlük taco'larınızı hazırlamak için harika seçeneklerden biri. Geleneksel olarak flautas veya taquitos ile servis edilir, ancak bazı vegan enchiladalara da harika bir katkı sağlar.",
+  };
+
+  const likeCount = 193;
+  const isLiked = true;
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Card
+          /* prop ismi = { değişken } */
+          author={recipeAuthor}
+          recipe={recipeItem}
+          count={likeCount}
+          liked={isLiked}
+          image={recipeItem.image}
+        />
       </header>
     </div>
   );
